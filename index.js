@@ -19,7 +19,7 @@ var argv = yargs
     .command( "course_url", "URL of the udemy coures to download", { alias: "url" } )
     .option( "u", { alias: "username", demand: false, describe: "Username in udemy", type: "string" } )
     .option( "p", { alias: "password", demand: false, describe: "Password of yor account", type: "string" } )
-    .option( "r", { alias: "resolution", demand: false, describe: "Download video resolution, default resolution is 360, for other video resolutions please refer to the website.", type: "integer" } )
+    .option( "r", { alias: "resolution", demand: false, describe: "Download video resolution, default resolution is 360, for other video resolutions please refer to the website.", type: "number" } )
     .option( "o", { alias: "output", demand: false, describe: "Output directory where the videos will be saved, default is current directory", type: "string" } )
     .help( "?" )
     .alias( "?", "help" )
