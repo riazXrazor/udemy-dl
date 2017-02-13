@@ -1,6 +1,6 @@
 {
   "name": "udemy-dl",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Nodejs script to download a udemy.com course, for personal offline use",
   "main": "index.js",
   "bin": {
@@ -9,7 +9,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/riazXrazor/udemy-dl.git"
+  },
   "author": "Riaz Ali Laskar",
+  "url" : "https://github.com/riazXrazor/udemy-dl/issues",
+  "email" : "riazcool77@gmail.com",
   "license": "ISC",
   "dependencies": {
     "async": "^2.1.4",
