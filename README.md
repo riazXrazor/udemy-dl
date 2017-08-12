@@ -50,8 +50,8 @@ Options:
 ```
 
 
-### Updating
+### Updates
 
-This is still in developnment its not complet yet i will add more features and make it as good as the python version.
-
+ - *(8/12/2017)* added option to select resoluiton.
+ - *(8/12/2017)* added new download statistics data.
 
