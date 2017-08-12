@@ -52,6 +52,6 @@ Options:
 
 ### Updates
 
- - *(8/12/2017)* added option to select resoluiton.
+ - *(8/12/2017)* added option to select resolution.
  - *(8/12/2017)* added new download statistics data.
 
