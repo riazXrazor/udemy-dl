@@ -3,11 +3,11 @@ Nodejs script to download a udemy.com course (videos only), for personal offline
 
 ### Installation
 ```
-npm install udemy-dl -g
+npm install -g udemy-dl
 ```
 
 ### Version
-**0.0.1** 
+**0.0.1**
 
 ### Usage
 
@@ -54,4 +54,3 @@ Options:
 
  - *(8/12/2017)* added option to select resolution.
  - *(8/12/2017)* added new download statistics data.
-
