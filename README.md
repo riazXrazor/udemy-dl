@@ -7,7 +7,7 @@ npm install -g udemy-dl
 ```
 
 ### Version
-**0.0.11**
+**0.0.12**
 
 ### Usage
 
