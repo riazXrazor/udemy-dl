@@ -1,6 +1,6 @@
 {
   "name": "udemy-dl",
-  "version": "0.0.7",
+  "version": "0.0.12",
   "description": "Nodejs script to download a udemy.com course, for personal offline use",
   "main": "index.js",
   "bin": {
@@ -33,6 +33,7 @@
     "progress": "^1.1.8",
     "request": "^2.79.0",
     "request-progress": "^3.0.0",
+    "sanitize-filename": "^1.6.1",
     "slugify": "^1.1.0",
     "yargs": "^6.6.0"
   }
