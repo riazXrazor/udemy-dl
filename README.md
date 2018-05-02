@@ -7,7 +7,7 @@ npm install -g udemy-dl
 ```
 
 ### Version
-**0.0.14**
+**0.0.15**
 
 ### Usage
 
@@ -54,3 +54,5 @@ Options:
 
  - *(8/12/2017)* added option to select resolution.
  - *(8/12/2017)* added new download statistics data.
+ - *(2/05/2018)* bug fixes to for code changes in udemy.
+ - *(2/05/2018)* Course materials are also downloaded now.
