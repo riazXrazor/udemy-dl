@@ -51,8 +51,8 @@ Options:
 
 
 ### Updates
+ - *(02/05/2018)* bug fixes to for code changes in udemy.
+ - *(02/05/2018)* Course materials are also downloaded now.
+ - *(08/12/2017)* added option to select resolution.
+ - *(08/12/2017)* added new download statistics data.
 
- - *(8/12/2017)* added option to select resolution.
- - *(8/12/2017)* added new download statistics data.
- - *(2/05/2018)* bug fixes to for code changes in udemy.
- - *(2/05/2018)* Course materials are also downloaded now.
