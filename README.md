@@ -1,5 +1,5 @@
 # NodeJS version udemy-dl
-Nodejs script to download a udemy.com course (videos only), for personal offline use, based on https://github.com/nishad/udemy-dl.
+Nodejs script to download a udemy.com course (videos only), for personal offline use.
 
 ### Installation
 ```
