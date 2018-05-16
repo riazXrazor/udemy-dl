@@ -32,8 +32,6 @@ var argv = yargs
 
     functions.headingMsg();
     var status;
-    argv.username = 'amitabh@codelogicx.com';
-    argv.password = 'ringa112#';
     if(argv.username && argv.password)
     {
                   status = new Spinner('Logging in, please wait...          ');
