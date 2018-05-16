@@ -7,9 +7,10 @@ npm install -g udemy-dl
 ```
 
 ### Version
-**0.0.18**
+**0.0.19**
 
 ### Usage
+![udemy-dl usage](https://raw.githubusercontent.com/riazXrazor/udemy-dl/master/gif/udemy-dl.gif)
 
 Simply call `udl` with the full URL to the course page.
 ```
@@ -51,9 +52,10 @@ Options:
 
 
 ### Updates
- - *(09/05/2018)* added course number in download.
- - *(02/05/2018)* bug fixes to for code changes in udemy.
+ - *(16/05/2018)* Course selection list added, no more url needed.
+ - *(09/05/2018)* Added course number in download.
+ - *(02/05/2018)* Bug fixes to for code changes in udemy.
  - *(02/05/2018)* Course materials are also downloaded now.
- - *(08/12/2017)* added option to select resolution.
- - *(08/12/2017)* added new download statistics data.
+ - *(08/12/2017)* Added option to select resolution.
+ - *(08/12/2017)* Added new download statistics data.
 
