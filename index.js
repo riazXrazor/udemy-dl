@@ -78,9 +78,9 @@ var argv = yargs
 
                 core.login(credentials.username,credentials.password,function(access_token,client_id){
                   status.stop();
-                  functions.getCourse(url,function(){
-                      //console.log("Ok");
-                  });
+                    functions.getCourseList(function(){
+                    //console.log("Ok");
+                    });
                 });
         });
     }
