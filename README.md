@@ -7,7 +7,7 @@ npm install -g udemy-dl
 ```
 
 ### Version
-**0.0.23**
+**0.0.26**
 
 ### Usage
 ![udemy-dl usage](https://raw.githubusercontent.com/riazXrazor/udemy-dl/master/gif/udemy-dl.gif)
@@ -52,6 +52,8 @@ Options:
 
 
 ### Updates
+ - *(26/05/2018)* New feature downloads subtitles now.
+ - *(26/05/2018)* Large course list issue fix
  - *(16/05/2018)* Course selection list added, no more url needed.
  - *(09/05/2018)* Added course number in download.
  - *(02/05/2018)* Bug fixes to for code changes in udemy.

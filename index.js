@@ -14,6 +14,7 @@ var yargs = require('yargs');
 var files = require('./lib/files');
 var functions = require('./lib/functions');
 var core = require('./lib/core');
+// const puppeteer = require('puppeteer');
 
 var argv = yargs
     .usage( "Usage: udl <course_url> [-u \"username\"] [-p \"password\"]" )
@@ -37,7 +38,7 @@ var argv = yargs
                   status = new Spinner('Logging in, please wait...          ');
                   status.start();
 
-              core.login(argv.username,argv.password,function(access_token,client_id){
+                core.login(argv.username,argv.password,function(access_token,client_id){
 
                 status.stop();
 
