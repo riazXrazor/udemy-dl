@@ -14,7 +14,6 @@ var yargs = require('yargs');
 var files = require('./lib/files');
 var functions = require('./lib/functions');
 var core = require('./lib/core');
-// const puppeteer = require('puppeteer');
 
 var argv = yargs
     .usage( "Usage: udl <course_url> [-u \"username\"] [-p \"password\"]" )
