@@ -7,7 +7,7 @@ if u like to test the gui version.
 - linux version: https://drive.google.com/open?id=1e2_R6Wf3buQALrFrJZckhYESuvtZwDS8
 - mac version : https://drive.google.com/open?id=1Hrm9lelrprdaTKZdR8jjdU3Cvyldy3jK
 
-# NodeJS version udemy-dl
+# NodeJS version udemy-dl [CLI]
 Nodejs script to download a udemy.com course (videos only), for personal offline use.
 
 ### Installation
