@@ -1,4 +1,13 @@
-# NodeJS version udemy-dl
+# udemy-dl-gui
+
+A pre-alpha version, its bit slow and unoptimized but its kind of a workable.
+if u like to test the gui version.
+
+- windows version : https://drive.google.com/open?id=1kO0WCVuZGXbaEr6s7G_2azWLeNUTIvKK
+- linux version: https://drive.google.com/open?id=1e2_R6Wf3buQALrFrJZckhYESuvtZwDS8
+- mac version : https://drive.google.com/open?id=1Hrm9lelrprdaTKZdR8jjdU3Cvyldy3jK
+
+# NodeJS version udemy-dl [CLI]
 Nodejs script to download a udemy.com course (videos only), for personal offline use.
 
 ### Installation
@@ -7,7 +16,7 @@ npm install -g udemy-dl
 ```
 
 ### Version
-**0.0.29**
+**0.0.31**
 
 ### Usage
 ![udemy-dl usage](https://raw.githubusercontent.com/riazXrazor/udemy-dl/master/gif/udemy-dl.gif)
