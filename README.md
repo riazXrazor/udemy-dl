@@ -55,6 +55,8 @@ Options:
                     other video resolutions please refer to the website.[number]
   -o, --output      Output directory where the videos will be saved, default is
                     current directory                                   [string]
+  -h, --host        Host name, in case of Udemy for Business
+                                             [string] [default: "www.udemy.com"]
   -?, --help        Show help                                          [boolean]
 
 ```
