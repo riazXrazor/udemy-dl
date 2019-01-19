@@ -22,7 +22,7 @@ var argv = yargs
     .option( "p", { alias: "password", demand: false, describe: "Password of yor account", type: "string" } )
     .option( "r", { alias: "resolution", demand: false, describe: "Download video resolution, default resolution is 360, for other video resolutions please refer to the website.", type: "number" } )
     .option( "o", { alias: "output", demand: false, describe: "Output directory where the videos will be saved, default is current directory", type: "string" } )
-    .option( "h", { alias: "host", demand: false, describe: "Host name, in case of Udemy for Business", type: "string", default: 'www.udemy.com' } )
+    .option( "h", { alias: "host", demand: false, describe: "Business name, in case of Udemy for Business", type: "string", default: '' } )
     .help( "?" )
     .alias( "?", "help" )
     .epilog( "By Riaz Ali Laskar" )
@@ -30,14 +30,14 @@ var argv = yargs
 
     // Get the URL from the first parameter
     var url = argv._[ 0 ];
-
+    argv.host = argv.host || 'www';
+    let host = `https://${argv.host.toLowerCase()}.udemy.com`;
     functions.headingMsg();
     var status;
     if(argv.username && argv.password)
     {
                   status = new Spinner('Logging in, please wait...          ');
                   status.start();
-
                 core.login(argv.username,argv.password,function(access_token,client_id){
 
                 status.stop();
