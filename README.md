@@ -1,8 +1,3 @@
-# udemy-dl-gui
-
-A pre-alpha version, its bit slow and unoptimized but its kind of a workable.
-if u like to test the gui version.
-
 # NodeJS version udemy-dl
 Nodejs script to download a udemy.com course (videos only), for personal offline use.
 
