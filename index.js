@@ -1,17 +1,9 @@
 #!/usr/bin/env node
-
-var chalk       = require('chalk');
-var clear       = require('clear');
 var CLI         = require('clui');
-var figlet      = require('figlet');
-var inquirer    = require('inquirer');
 var Spinner     = CLI.Spinner;
-var fs          = require('fs');
-var Preferences = require('preferences');
-
+var CLI         = require('clui');
+var Spinner     = CLI.Spinner;
 var yargs = require('yargs');
-
-var files = require('./lib/files');
 var functions = require('./lib/functions');
 var core = require('./lib/core');
 
@@ -23,6 +15,7 @@ var argv = yargs
     .option( "r", { alias: "resolution", demand: false, describe: "Download video resolution, default resolution is 360, for other video resolutions please refer to the website.", type: "number" } )
     .option( "o", { alias: "output", demand: false, describe: "Output directory where the videos will be saved, default is current directory", type: "string" } )
     .option( "h", { alias: "host", demand: false, describe: "Business name, in case of Udemy for Business", type: "string", default: '' } )
+    .option( "e", { alias: "export", demand: false, describe: "Export as JSON", type: "boolean", default: false } )
     .help( "?" )
     .alias( "?", "help" )
     .epilog( "By Riaz Ali Laskar" )
@@ -30,8 +23,6 @@ var argv = yargs
 
     // Get the URL from the first parameter
     var url = argv._[ 0 ];
-    argv.host = argv.host || 'www';
-    let host = `https://${argv.host.toLowerCase()}.udemy.com`;
     functions.headingMsg();
     var status;
     if(argv.username && argv.password)
@@ -73,12 +64,11 @@ var argv = yargs
     {
 
         functions.getUdemyCredentials(function(credentials){
-
             var status = new Spinner('Logging in, please wait...          ');
                 status.start();
-
                 core.login(credentials.username,credentials.password,function(access_token,client_id){
                   status.stop();
+           
                     functions.getCourseList(function(){
                     //console.log("Ok");
                     });

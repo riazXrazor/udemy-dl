@@ -3,11 +3,7 @@
 A pre-alpha version, its bit slow and unoptimized but its kind of a workable.
 if u like to test the gui version.
 
-- windows version : https://drive.google.com/open?id=1kO0WCVuZGXbaEr6s7G_2azWLeNUTIvKK
-- linux version: https://drive.google.com/open?id=1e2_R6Wf3buQALrFrJZckhYESuvtZwDS8
-- mac version : https://drive.google.com/open?id=1Hrm9lelrprdaTKZdR8jjdU3Cvyldy3jK
-
-# NodeJS version udemy-dl [CLI]
+# NodeJS version udemy-dl
 Nodejs script to download a udemy.com course (videos only), for personal offline use.
 
 ### Installation
@@ -16,7 +12,12 @@ npm install -g udemy-dl
 ```
 
 ### Version
-**0.0.31**
+**1.0.0**
+
+### New Updates
+ - *(20/1/2019) * added export all links as json option.
+ - *(20/1/2019) * support for corporate login (thanks to @Sab94) 
+ - *Published gui version at https://electronjs.org/apps/udl-gui
 
 ### Usage
 ![udemy-dl usage](https://raw.githubusercontent.com/riazXrazor/udemy-dl/master/gif/udemy-dl.gif)
@@ -43,7 +44,7 @@ udl --help
 ### Advanced Usage
 
 ```
-Usage: udl <course_url> [-u "username"] [-p "password"] [-o "/vids/"] [-r "360"]
+Usage: udl <course_url> [-u "username"] [-p "password"]
 
 Commands:
   course_url  URL of the udemy coures to download
@@ -55,14 +56,19 @@ Options:
                     other video resolutions please refer to the website.[number]
   -o, --output      Output directory where the videos will be saved, default is
                     current directory                                   [string]
-  -h, --host        Host name, in case of Udemy for Business
-                                             [string] [default: "www.udemy.com"]
+  -h, --host        Business name, in case of Udemy for Business
+                                                          [string] [default: ""]
+  -e, --export      Export as JSON                    [boolean] [default: false]
   -?, --help        Show help                                          [boolean]
+
+By Riaz Laskar
 
 ```
 
 
 ### Updates
+ - *(20/1/2019) * added export all links as json option.
+ - *(20/1/2019) * support for corporate login (thanks to @Sab94) 
  - *(19/11/2018)* updated login process
  - *(26/05/2018)* New feature downloads subtitles now.
  - *(26/05/2018)* Large course list issue fix
