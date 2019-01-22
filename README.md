@@ -74,3 +74,8 @@ By Riaz Laskar
  - *(08/12/2017)* Added option to select resolution.
  - *(08/12/2017)* Added new download statistics data.
 
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/riazXrazor/udemy-dl/badge.svg?style=beer-square)](https://beerpay.io/riazXrazor/udemy-dl)  [![Beerpay](https://beerpay.io/riazXrazor/udemy-dl/make-wish.svg?style=flat-square)](https://beerpay.io/riazXrazor/udemy-dl?focus=wish)
