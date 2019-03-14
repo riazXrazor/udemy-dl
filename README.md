@@ -7,9 +7,10 @@ npm install -g udemy-dl
 ```
 
 ### Version
-**1.0.0**
+**1.0.1**
 
 ### New Updates
+ - *(14/3/2019) * login fix and video 1080p select fix.
  - *(20/1/2019) * added export all links as json option.
  - *(20/1/2019) * support for corporate login (thanks to @Sab94) 
  - *Published gui version at https://electronjs.org/apps/udl-gui
@@ -62,6 +63,7 @@ By Riaz Laskar
 
 
 ### Updates
+ - *(14/3/2019) * login fix and video 1080p select fix.
  - *(20/1/2019) * added export all links as json option.
  - *(20/1/2019) * support for corporate login (thanks to @Sab94) 
  - *(19/11/2018)* updated login process
