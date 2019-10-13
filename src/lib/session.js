@@ -1,6 +1,3 @@
-
-var request = require('request');
-
 module.exports = {
   headers: {
     'User-Agent': 'StackOverflow',
@@ -22,14 +19,6 @@ module.exports = {
     this.headers['Host'] = host.replace('https://','')
     this.headers['Referer'] = `${host}/join/login-popup`
     this.headers['Origin'] = `${host}/`
-    // x-requested-with: XMLHttpRequest
-    // x-udemy-authorization: Bearer oHf11n6uWAD3QXOS1jb2g1ZfkHCfpmEXQFfT0xW1
-    // x-udemy-cache-brand: 825218b142cadf22
-    // x-udemy-cache-campaign-code: 7815696ecbf1c96e
-    // x-udemy-cache-price-country: c86ee0d9d7ed3e7b
-    // x-udemy-cache-release: 3a6f78df5069f22f
-    // x-udemy-cache-user: 121cc81d44bfee23
-    // x-udemy-cache-version: c4ca4238a0b92382
   }
 
 };

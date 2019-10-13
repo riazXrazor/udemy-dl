@@ -1,44 +1,74 @@
 {
   "name": "udemy-dl",
-  "version": "1.0.1",
-  "description": "Nodejs script to download a udemy.com course, for personal offline use",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Nodejs script to download a udemy.com course, for personal offline use.",
+  "author": "Riaz Laskar @riazXrazor",
   "bin": {
-    "udl": "./index.js"
+    "udl": "./bin/run"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/riazXrazor/udemy-dl.git"
-  },
-  "author": "Riaz Ali Laskar",
-  "url": "https://github.com/riazXrazor/udemy-dl/issues",
-  "email": "riazcool77@gmail.com",
-  "license": "ISC",
+  "bugs": "https://github.com/riazXrazor/udemy-dl/issues",
   "dependencies": {
-    "async": "^2.1.4",
-    "chalk": "^1.1.3",
-    "cheerio": "^0.22.0",
-    "clear": "0.0.1",
-    "clui": "^0.3.1",
-    "cookie": "^0.3.1",
-    "figlet": "^1.2.0",
-    "inquirer": "^2.0.0",
-    "jsonfile": "^4.0.0",
-    "minimist": "^1.2.0",
-    "mkdirp": "^0.5.1",
-    "moment": "^2.17.1",
+    "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.13.3",
+    "@oclif/plugin-help": "^2.2.1",
+    "@oclif/plugin-update": "^1.3.9",
+    "@oclif/plugin-warn-if-update-available": "^1.7.0",
+    "asciiart-logo": "^0.2.6",
+    "async": "^3.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cli-ux": "^5.3.2",
+    "colors": "^1.4.0",
+    "dotenv": "^8.1.0",
+    "fs-extra": "^8.1.0",
+    "inquirer": "^7.0.0",
+    "lodash": "^4.17.15",
+    "node-notifier": "^6.0.0",
     "node-vtt-to-srt": "^1.0.0",
-    "preferences": "^0.2.1",
-    "progress": "^1.1.8",
-    "query-string": "^6.1.0",
-    "request": "^2.86.0",
+    "preferences": "^1.0.2",
+    "progress": "^2.0.3",
+    "query-string": "^6.8.3",
+    "request": "^2.88.0",
     "request-progress": "^3.0.0",
-    "sanitize-filename": "^1.6.1",
-    "slugify": "^1.3.0",
-    "superagent": "^3.8.3",
-    "yargs": "^6.6.0"
+    "sanitize-filename": "^1.6.3",
+    "superagent": "^5.1.0"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.22.2",
+    "globby": "^10.0.1",
+    "rimraf": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "homepage": "https://github.com/riazXrazor/udemy-dl",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "hooks": {
+      "init": "./src/hooks/splash"
+    },
+    "bin": "udl",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-update",
+      "@oclif/plugin-warn-if-update-available"
+    ]
+  },
+  "repository": "riazXrazor/udemy-dl",
+  "scripts": {
+    "postpack": "rimraf oclif.manifest.json",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
   }
 }
