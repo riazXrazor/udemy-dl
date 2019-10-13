@@ -158,18 +158,18 @@ function download(dataObj,callback) {
                      var r = request(track.url)
                             .pipe(vtt2srt())
                             .pipe(fs.createWriteStream(save_path+path.sep+filename+'_'+track.lang+'.srt'))
-                    
+
                             cb();
                 },function(err){
                     callback();
                 });
-                
+
             }
             else
             {
                 callback();
             }
-           
+
         })
         .pipe(fs.createWriteStream(apiPath));
       });

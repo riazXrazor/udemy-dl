@@ -1,37 +1,9 @@
-var chalk       = require('chalk');
-var clear       = require('clear');
-var figlet      = require('figlet');
-var inquirer    = require('inquirer');
-var Preferences = require('preferences');
-var CLI         = require('clui');
-var Spinner     = CLI.Spinner;
-var yargs = require('yargs');
-var _ = require('lodash');
-var argv = yargs
-    .usage( "Usage: udl <course_url> [-u \"username\"] [-p \"password\"]" )
-    .command( "course_url", "URL of the udemy coures to download", { alias: "url" } )
-    .option( "u", { alias: "username", demand: false, describe: "Username in udemy", type: "string" } )
-    .option( "p", { alias: "password", demand: false, describe: "Password of yor account", type: "string" } )
-    .option( "r", { alias: "resolution", demand: false, describe: "Download video resolution, default resolution is 360, for other video resolutions please refer to the website.", type: "number" } )
-    .option( "o", { alias: "output", demand: false, describe: "Output directory where the videos will be saved, default is current directory", type: "string" } )
-    .option( "h", { alias: "host", demand: false, describe: "Business name, in case of Udemy for Business", type: "string", default: '' } )
-    .option( "e", { alias: "export", demand: false, describe: "Export as JSON", type: "boolean", default: false } )
-    .help( "?" )
-    .alias( "?", "help" )
-    .epilog( "By Riaz Ali Laskar" )
-    .argv;
-var core = require('./core');
+const cli = require('cli-ux').default
+const Preferences = require("preferences");
 
+var core = require('./core');
 var prefs = new Preferences('udl');
 
-function headingMsg(){
-  clear();
-  console.log(
-    chalk.yellow(
-      figlet.textSync('udemy-dl', { horizontalLayout: 'full' })
-    )
-  );
-}
 
 function getUdemyCredentials(callback) {
   var questions = [
@@ -52,15 +24,17 @@ function getUdemyCredentials(callback) {
       name: 'password',
       type: 'password',
       message: 'Enter your password:',
-      // validate: function(value) {
-      //   if (value.length) {
-      //     return true;
-      //   } else {
-      //     return 'Please enter your password';
-      //   }
-      // }
+      validate: function(value) {
+        if (value.length) {
+          return true;
+        } else {
+          return 'Please enter your password';
+        }
+      }
     }
   ];
+
+
 
   inquirer.prompt(questions).then(callback).catch(e=>console.log(e));
 }
@@ -80,7 +54,7 @@ function getAccessToken(callback) {
 
 
 function getCourse(url,callback) {
-  
+
 
   var course_url = url;
 
@@ -123,7 +97,7 @@ function getCourseList(callback)
     var status = new Spinner("Getting your courses...                   ");
     status.start();
     core.get_course_list(function(list){
-      
+
 
       let courses = [];
       _.map(list,function(course,index){
@@ -143,11 +117,8 @@ function getCourseList(callback)
 
     inquirer.prompt(questions).then(function(selected) {
         let course_to_download = _.find(list,function(o){
-          return _.includes(selected.course,o.title); 
+          return _.includes(selected.course,o.title);
         });
-        
-        core.get_data_links(course_to_download.id);
-        callback();
     });
 
 
@@ -159,6 +130,5 @@ module.exports = {
   getUdemyCredentials : getUdemyCredentials,
   getAccessToken : getAccessToken,
   getCourse : getCourse,
-  getCourseList : getCourseList,
-  headingMsg : headingMsg
+  getCourseList : getCourseList
 }

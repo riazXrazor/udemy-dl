@@ -1,83 +1,104 @@
-# NodeJS version udemy-dl
-Nodejs script to download a udemy.com course (videos only), for personal offline use.
+udemy-dl
+========
 
-### Installation
+
+
+[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
+[![Version](https://img.shields.io/npm/v/udemy-dl.svg)](https://npmjs.org/package/udemy-dl)
+[![Downloads/week](https://img.shields.io/npm/dw/udemy-dl.svg)](https://npmjs.org/package/udemy-dl)
+[![License](https://img.shields.io/npm/l/udemy-dl.svg)](https://github.com/riazXrazor/udemy-dl/blob/master/package.json)
+
+![udemy-dl usage](https://raw.githubusercontent.com/riazXrazor/udemy-dl/master/assets/udemy-dl.gif)
+
+<!-- toc -->
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
+# Usage
+<!-- usage -->
+```sh-session
+$ npm install -g udemy-dl
+$ udl COMMAND
+running command...
+$ udl (-v|--version|version)
+udemy-dl/2.0.0 win32-x64 node-v10.16.3
+$ udl --help [COMMAND]
+USAGE
+  $ udl COMMAND
+...
 ```
-npm install -g udemy-dl
-```
+<!-- usagestop -->
+# Commands
+<!-- commands -->
+* [`udl help [COMMAND]`](#udl-help-command)
+* [`udl login`](#udl-login)
+* [`udl reset`](#udl-reset)
+* [`udl update [CHANNEL]`](#udl-update-channel)
 
-### Version
-**1.0.1**
+## `udl help [COMMAND]`
 
-### New Updates
- - *(14/3/2019) * login fix and video 1080p select fix.
- - *(20/1/2019) * added export all links as json option.
- - *(20/1/2019) * support for corporate login (thanks to @Sab94) 
- - *Published gui version at https://electronjs.org/apps/udl-gui
-
-### Usage
-![udemy-dl usage](https://raw.githubusercontent.com/riazXrazor/udemy-dl/master/gif/udemy-dl.gif)
-
-Simply call `udl` with the full URL to the course page.
-```
-udl https://www.udemy.com/COURSE_NAME
-```
-`udemy-dl` will ask for your udemy username (email address) and password then start downloading the videos.
-
-By default, `udemy-dl` will create a subdirectory based on the course name.  If you wish to have the files downloaded to a specific location, use the `-o \path\to\directory\` parameter.
-
-If you wish, you can include the username/email and password on the command line using the -u and -p parameters.
-
-```
-udl -u user@domain.com -p $ecRe7w0rd https://www.udemy.com/COURSE_NAME
-```
-
-For information about all available parameters, use the `--help` parameter
-```
-udl --help
-```
-
-### Advanced Usage
-
-```
-Usage: udl <course_url> [-u "username"] [-p "password"]
-
-Commands:
-  course_url  URL of the udemy coures to download
-
-Options:
-  -u, --username    Username in udemy                                   [string]
-  -p, --password    Password of yor account                             [string]
-  -r, --resolution  Download video resolution, default resolution is 360, for
-                    other video resolutions please refer to the website.[number]
-  -o, --output      Output directory where the videos will be saved, default is
-                    current directory                                   [string]
-  -h, --host        Business name, in case of Udemy for Business
-                                                          [string] [default: ""]
-  -e, --export      Export as JSON                    [boolean] [default: false]
-  -?, --help        Show help                                          [boolean]
-
-By Riaz Laskar
+display help for udl
 
 ```
+USAGE
+  $ udl help [COMMAND]
 
+ARGUMENTS
+  COMMAND  command to show help for
 
-### Updates
- - *(14/3/2019) * login fix and video 1080p select fix.
- - *(20/1/2019) * added export all links as json option.
- - *(20/1/2019) * support for corporate login (thanks to @Sab94) 
- - *(19/11/2018)* updated login process
- - *(26/05/2018)* New feature downloads subtitles now.
- - *(26/05/2018)* Large course list issue fix
- - *(16/05/2018)* Course selection list added, no more url needed.
- - *(09/05/2018)* Added course number in download.
- - *(02/05/2018)* Bug fixes to for code changes in udemy.
- - *(02/05/2018)* Course materials are also downloaded now.
- - *(08/12/2017)* Added option to select resolution.
- - *(08/12/2017)* Added new download statistics data.
+OPTIONS
+  --all  see all commands in CLI
+```
 
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src\commands\help.ts)_
 
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
+## `udl login`
 
-[![Beerpay](https://beerpay.io/riazXrazor/udemy-dl/badge.svg?style=beer-square)](https://beerpay.io/riazXrazor/udemy-dl)  [![Beerpay](https://beerpay.io/riazXrazor/udemy-dl/make-wish.svg?style=flat-square)](https://beerpay.io/riazXrazor/udemy-dl?focus=wish)
+>Login to udemy.com and displays a list of courses to download.
+
+```
+USAGE
+  $ udl login
+
+OPTIONS
+  -e, --export             export the course data as json with links
+  -o, --output=output      output directory where the videos will be save, defaults to current directory
+  -p, --password=password  udemy password
+  -r, --url=url            url of the couse to be downloaded
+  -u, --username=username  udemy username
+
+DESCRIPTION
+  >Login to udemy.com and displays a list of courses to download.
+```
+
+_See code: [src\commands\login.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.0/src\commands\login.js)_
+
+## `udl reset`
+
+>Erase all login credentials stored and download progress.
+
+```
+USAGE
+  $ udl reset
+
+OPTIONS
+  -d, --downloadOnly  Erase downloading progress only
+  -l, --loginOnly     Erase login credentials only
+
+DESCRIPTION
+  >Erase all login credentials stored and download progress.
+```
+
+_See code: [src\commands\reset.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.0/src\commands\reset.js)_
+
+## `udl update [CHANNEL]`
+
+update the udl CLI
+
+```
+USAGE
+  $ udl update [CHANNEL]
+```
+
+_See code: [@oclif/plugin-update](https://github.com/oclif/plugin-update/blob/v1.3.9/src\commands\update.ts)_
+<!-- commandsstop -->
