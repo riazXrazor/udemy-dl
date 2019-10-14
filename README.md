@@ -1,7 +1,8 @@
-udemy-dl
+udemy-dl 2.0
 ========
 
-
+# Install
+>npm i -g udemy-dl
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/udemy-dl.svg)](https://npmjs.org/package/udemy-dl)
