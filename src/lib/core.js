@@ -15,14 +15,18 @@ const session = require('./session');
 const files = require('./files');
 
 
-const { HOST } = process.env;
+const { ROOT_HOST } = process.env;
+let HOST = ROOT_HOST;
 const agent = superagent.agent();
 
 _.forEach(session.headers, function(value, key) {
     agent.set(key,value);
 });
 
-const login = function(username, password){
+const login = function(username, password, business){
+    if(!_.isEmpty(business)){
+      HOST = HOST.replace('www',business)
+    }
     return new Promise(function(resolve, reject) {
         let login_url = `${HOST}/join/login-popup/`;
         let access_token,client_id;
@@ -77,6 +81,7 @@ const login = function(username, password){
 
 const getCourseList = async function() {
   const get_url = `${HOST}/api-2.0/users/me/subscribed-courses?page_size=500`;
+  // console.log(get_url);
   session.course_list = [];
   return _fetchCourses(get_url)
 
@@ -433,13 +438,17 @@ const _fetchCourses = function(url) {
         if(e){
             reject(new Error("Error occured during fetching courses"));
         }
-        let list = JSON.parse(b);
-        if(list.next) {
-            session.course_list = session.course_list.concat(list.results)
-            _fetchCourses(list.next,cb);
-        } else {
-            session.course_list = session.course_list.concat(list.results)
-            resolve(session.course_list);
+        try{
+          let list = JSON.parse(b);
+          if(list.next) {
+              session.course_list = session.course_list.concat(list.results)
+              _fetchCourses(list.next,cb);
+          } else {
+              session.course_list = session.course_list.concat(list.results)
+              resolve(session.course_list);
+          }
+        } catch(e){
+          reject(new Error("Error could not fetch courses"));
         }
     });
   });
@@ -481,21 +490,21 @@ function _download(dataObj,callback, store) {
       save_path = _.isEmpty(dataObj.subs) ? base_path+path.sep+sanitize(dataObj.chapter) : base_path+path.sep+sanitize(dataObj.chapter)+path.sep+filename
       ;
       console.log();
-      console.log('Chapter : '+dataObj.chapter);
+      console.log(`Chapter : ${dataObj.chapter}`.green);
       if(dataObj.resolution)
       {
-        console.log('Video : '+ title);
-        console.log('Resolution : '+ dataObj.resolution+'p');
+        console.log(`Video :  ${title}`.green);
+        console.log(`Resolution :  ${dataObj.resolution}p`.green);
       }
       else
       {
-        console.log('File : '+ title);
+        console.log(`File :  ${title}`.green);
       }
-      console.log('Location : '+apiPath);
+      console.log(`Location : ${apiPath}`.green);
 
       if(dataObj.state == 'C')
       {
-        console.log("Already downloaded");
+        console.log("Already downloaded".green);
         callback();
       }
       else
@@ -516,7 +525,7 @@ function _download(dataObj,callback, store) {
           downloadQueue[current_index].state = 'R';
           store.download_queue[dataObj.course_id].downloadQueue = downloadQueue;
               console.log();
-               bar = new ProgressBar(("    downloading [:bar] :percent [:t_downloaded]  TOTAL SIZE :t_size / TIME REMAINING :download_time :complet"), {
+               bar = new ProgressBar(("    downloading [:bar] :percent [:t_downloaded]  TOTAL SIZE :t_size / TIME REMAINING :download_time :complet".green), {
                 complete: '>',
                 incomplete: ' ',
                 width: 50,
@@ -553,7 +562,7 @@ function _download(dataObj,callback, store) {
         })
         .on('error', function (err) {
             console.log();
-            console.log("Error Downloading please try again !!");
+            console.log("Error Downloading please try again !!".red);
         })
         .on('end', function () {
              bar.update(1,{
