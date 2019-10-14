@@ -8,7 +8,8 @@ class ResetCommand extends Base {
     if(flags.loginOnly){
       this.pref.account = {
         username: '',
-        password: ''
+        password: '',
+        business: ''
       }
       return;
     }
@@ -21,13 +22,12 @@ class ResetCommand extends Base {
     const n = await this.cli.prompt("Are you sure, all your progress and login credentiels cached will be erased ? (Y|N)")
 
     if(n == 'y' || n == 'Y'){
-      this.pref = {
-        account: {
-          username: '',
-          password: ''
-        },
-        download_queue: {}
+      this.pref.account = {
+        username: '',
+        password: '',
+        business: ''
       }
+      this.pref.download_queue = {};
     }
   }
 }

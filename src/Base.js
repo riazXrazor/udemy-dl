@@ -1,4 +1,4 @@
-const {Command} = require('@oclif/command')
+const {Command,flags} = require('@oclif/command')
 const cli = require('cli-ux').default
 const _ = require('lodash')
 const inquirer    = require('inquirer');
@@ -10,7 +10,8 @@ const core = require('./lib/core')
 const store = new Preferences('razor-udemy-dl-v2',{
   account: {
     username: '',
-    password: ''
+    password: '',
+    business: ''
   },
   download_queue: {}
 });

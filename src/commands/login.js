@@ -9,14 +9,20 @@ class LoginCommand extends Base {
     // console.log(JSON.stringify(this.pref.download_queue))
     // return;
     this.toast(`Starting udemy-dl`);
-
+    let business;
+    if(flags.business && this._.isEmpty(flags.business) && !this.pref.account.business){
+       business = await this.cli.prompt('Enter business name')
+    } else {
+      business = flags.business || this.pref.account.business
+    }
     const username = flags.username || this.pref.account.username || await this.cli.prompt('Enter your Udemy username')
     const password = flags.password || this.pref.account.password || await this.cli.prompt('Enter your password', {type: 'hide'})
+
 
     this.cli.action.start('Authencating'.green)
 
     try{
-      const {access_token,client_id} = await this.core.login(username,password);
+      const {access_token,client_id} = await this.core.login(username,password,business);
        this.pref.account = {
         access_token,
         client_id,
@@ -112,11 +118,12 @@ LoginCommand.description = `
 `
 
 LoginCommand.flags = {
-  username: flags.string({char: 'u', description: 'udemy username'}),
-  password: flags.string({char: 'p', description: 'udemy password'}),
-  output: flags.string({char: 'o', description: 'output directory where the videos will be save, defaults to current directory'}),
-  export: flags.boolean({char: 'e', description: 'export the course data as json with links'}),
-  url: flags.string({char: 'r', description: 'url of the couse to be downloaded'}),
+  username: flags.string({char: 'u', description: 'Udemy username'}),
+  password: flags.string({char: 'p', description: 'Udemy password'}),
+  output: flags.string({char: 'o', description: 'Output directory where the videos will be save, defaults to current directory'}),
+  export: flags.boolean({char: 'e', description: 'Export the course data as json with links'}),
+  url: flags.string({char: 'r', description: 'Url of the couse to be downloaded'}),
+  business: flags.string({char: 'b', description: 'Business name, in case of Udemy for Business'}),
 }
 
 module.exports = LoginCommand
