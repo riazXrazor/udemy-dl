@@ -1,7 +1,5 @@
 const {flags} = require('@oclif/command')
 const Base = require('./../Base')
-const cli = require('cli-ux').default
-
 class LoginCommand extends Base {
   async run() {
     const {flags} = this.parse(LoginCommand)
