@@ -1,6 +1,6 @@
 {
   "name": "udemy-dl",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Nodejs script to download a udemy.com course, for personal offline use.",
   "author": "Riaz Laskar @riazXrazor",
   "bin": {
