@@ -26,7 +26,7 @@ $ npm install -g udemy-dl
 $ udl COMMAND
 running command...
 $ udl (-v|--version|version)
-udemy-dl/2.0.4 win32-x64 node-v12.11.0
+udemy-dl/2.0.5 win32-x64 node-v12.11.0
 $ udl --help [COMMAND]
 USAGE
   $ udl COMMAND
@@ -50,7 +50,7 @@ USAGE
 * [`udl help [COMMAND]`](#udl-help-command)
 * [`udl login`](#udl-login)
 * [`udl reset`](#udl-reset)
-* [`udl update [CHANNEL]`](#udl-update-channel)
+* [`udl update`](#udl-update)
 
 ## `udl help [COMMAND]`
 
@@ -89,7 +89,7 @@ DESCRIPTION
   >Login to udemy.com and displays a list of courses to download.
 ```
 
-_See code: [src\commands\login.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.4/src\commands\login.js)_
+_See code: [src\commands\login.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.5/src\commands\login.js)_
 
 ## `udl reset`
 
@@ -107,18 +107,21 @@ DESCRIPTION
   >Erase all login credentials stored and download progress.
 ```
 
-_See code: [src\commands\reset.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.4/src\commands\reset.js)_
+_See code: [src\commands\reset.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.5/src\commands\reset.js)_
 
-## `udl update [CHANNEL]`
+## `udl update`
 
-update the udl CLI
+>Update udemy-dl to latest version
 
 ```
 USAGE
-  $ udl update [CHANNEL]
+  $ udl update
+
+DESCRIPTION
+  >Update udemy-dl to latest version
 ```
 
-_See code: [@oclif/plugin-update](https://github.com/oclif/plugin-update/blob/v1.3.9/src\commands\update.ts)_
+_See code: [src\commands\update.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.5/src\commands\update.js)_
 <!-- commandsstop -->
 * [`udl help [COMMAND]`](#udl-help-command)
 * [`udl login`](#udl-login)
