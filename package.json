@@ -1,27 +1,4 @@
 {
-  "_from": "udemy-dl@2.0.0",
-  "_id": "udemy-dl@2.0.0",
-  "_inBundle": false,
-  "_integrity": "sha512-z//H8+PJEa8buPWw8W+9AHVETpsocfH2uDVKeegWQu2Xewb774zDpgv9HM4UZ5VdgMJM6dAO42DmsZNziDEofQ==",
-  "_location": "/udemy-dl",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "udemy-dl@2.0.0",
-    "name": "udemy-dl",
-    "escapedName": "udemy-dl",
-    "rawSpec": "2.0.0",
-    "saveSpec": null,
-    "fetchSpec": "2.0.0"
-  },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_resolved": "https://registry.npmjs.org/udemy-dl/-/udemy-dl-2.0.0.tgz",
-  "_shasum": "7a91a4ba5573e559136a57232b01957d9ed364bc",
-  "_spec": "udemy-dl@2.0.0",
-  "_where": "C:\\Users\\RAZOR",
   "author": {
     "name": "Riaz Laskar @riazXrazor"
   },
@@ -31,7 +8,6 @@
   "bugs": {
     "url": "https://github.com/riazXrazor/udemy-dl/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
@@ -57,7 +33,6 @@
     "superagent": "^5.1.0",
     "update-notifier": "^3.0.1"
   },
-  "deprecated": false,
   "description": "Nodejs script to download a udemy.com course, for personal offline use.",
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
@@ -100,5 +75,5 @@
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md"
   },
-  "version": "2.0.0"
+  "version": "2.0.4"
 }
