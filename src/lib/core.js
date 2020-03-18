@@ -257,22 +257,28 @@ function _readyDownloadQueue(item, callback, store) {
             if (e) {
               new Error("Error occured during getting lecture");
             }
-
+            console.log(b);
             let json_source = JSON.parse(b) || JSON.parse(JSON.stringify(b));
             let url_link = json_source.download_urls.File[0];
-            let query_obj = queryString.parse(url_link.file);
             let element = {
               state: "P"
             };
+            let file, ext;
+            let query_obj = queryString.parse(url_link.file);
+            console.log(url_link);
+            if (!query_obj.filename) {
+              query_obj.filename = json_source.title;
+              element.title = json_source.title.split(".").shift();
+            }
+            file = query_obj.filename.split(".");
+            ext = file.pop();
 
-            let file = query_obj.filename.split(".");
-            let ext = file.pop();
             element.course_id = course_id;
             element.lecture_id = lecture_id;
             element.id = course_id + "-" + lecture_id + "-" + attachment.id;
             element.data_url = unescape(url_link.file);
             element.extension = ext;
-            element.title = file.join(" ");
+            if (!element.title) element.title = file.join(" ");
             element.chapter = item.chapter;
             store.download_queue[course_id].downloadQueue.push(element);
             cb();
@@ -374,24 +380,30 @@ function _readyDownloadQueue(item, callback, store) {
           if (e) {
             new Error("Error occured during getting lecture");
           }
-
+          console.log(b);
           let json_source = JSON.parse(b) || JSON.parse(JSON.stringify(b));
 
           // console.log(json_source);
           var url_link = json_source.download_urls.File[0];
-          var query_obj = queryString.parse(url_link.file);
-          var element = {
+          let element = {
             state: "P"
           };
+          let file, ext;
+          let query_obj = queryString.parse(url_link.file);
+          console.log(url_link);
+          if (!query_obj.filename) {
+            query_obj.filename = json_source.title;
+            element.title = json_source.title.split(".").shift();
+          }
 
-          var file = query_obj.filename.split(".");
-          var ext = file.pop();
+          file = query_obj.filename.split(".");
+          ext = file.pop();
           element.course_id = course_id;
           element.lecture_id = lecture_id;
           element.id = course_id + "-" + lecture_id + "-" + attachment.id;
           element.data_url = unescape(url_link.file);
           element.extension = ext;
-          element.title = file.join(" ");
+          if (!element.title) element.title = file.join(" ");
           element.chapter = item.chapter;
           vstore.downloadQueue.push(element);
           //console.log(element);
@@ -510,10 +522,10 @@ function _download(dataObj, callback, store) {
           store.download_queue[dataObj.course_id].downloadQueue = downloadQueue;
           console.log();
           bar = new ProgressBar(
-            "    downloading [:bar] :percent [:t_downloaded]  TOTAL SIZE :t_size / TIME REMAINING :download_time :complet".green,
+            "    downloading :bar :percent [:t_downloaded]  TOTAL SIZE :t_size / TIME REMAINING :download_time :complet".green,
             {
-              complete: ">",
-              incomplete: " ",
+              complete: "\u2588",
+              incomplete: "\u2591",
               width: 50,
               total: 100
             }
