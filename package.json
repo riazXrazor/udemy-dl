@@ -75,5 +75,5 @@
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md"
   },
-  "version": "2.0.5"
+  "version": "2.0.7"
 }

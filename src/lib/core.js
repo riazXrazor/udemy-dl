@@ -105,12 +105,14 @@ const fetchCourseData = function({ id }) {
 
         const course_data_len = course_data["results"].length;
 
-        let setvidres;
+        let setvidres,
+          video_number = 1;
         for (let i = 0; i < course_data_len; i++) {
           let item = course_data["results"][i];
           if (item["_class"] == "chapter") {
             //edited to get current chapter number
             chapter = item["object_index"] + " - " + item["title"];
+            video_number = 1;
             continue;
           }
 
@@ -130,11 +132,12 @@ const fetchCourseData = function({ id }) {
                 course_id: course_id,
                 lecture_id: item["id"],
                 //added to get current video number
-                video_number: item["object_index"],
+                video_number: video_number,
                 attachments: [],
                 videos: videos,
                 type: "v"
               };
+              video_number = video_number + 1;
               videos.map(v => {
                 resolution_choices.push(v.label);
               });
@@ -192,13 +195,16 @@ const fetchCourseData = function({ id }) {
 
 const initializeDownload = function({ videos, selectedResolution }, store) {
   return new Promise(function(resolve, reject) {
+    let video_number = 1;
     async.eachSeries(
       videos,
       (item, cb) => {
         item.resolution = selectedResolution;
-        // console.log('o',item);
+        if (item.type == "v") {
+          item.number = video_number;
+          video_number += 1;
+        }
         _readyDownloadQueue(item, cb, store);
-        // console.log(store.download_queue[item.course_id].downloadQueue)
       },
       function(err, result) {
         if (err) {
@@ -236,7 +242,7 @@ const startDownload = function(
 
 function _readyDownloadQueue(item, callback, store) {
   const resolution = item.resolution;
-  let video_number = 1;
+  // let video_number = 1;
   let course_id = item.course_id;
   let lecture_id = item.lecture_id;
   const vstore = store.download_queue[course_id];
@@ -257,7 +263,7 @@ function _readyDownloadQueue(item, callback, store) {
             if (e) {
               new Error("Error occured during getting lecture");
             }
-            console.log(b);
+            //console.log(b);
             let json_source = JSON.parse(b) || JSON.parse(JSON.stringify(b));
             let url_link = json_source.download_urls.File[0];
             let element = {
@@ -265,7 +271,7 @@ function _readyDownloadQueue(item, callback, store) {
             };
             let file, ext;
             let query_obj = queryString.parse(url_link.file);
-            console.log(url_link);
+            //console.log(url_link);
             if (!query_obj.filename) {
               query_obj.filename = json_source.title;
               element.title = json_source.title.split(".").shift();
@@ -339,8 +345,9 @@ function _readyDownloadQueue(item, callback, store) {
         element.title = json_source.title;
         element.chapter = item.chapter;
         element.resolution = resolution;
-        element.number = video_number++;
+        element.number = item.number;
         element.subs = [];
+        // video_number = video_number + 1;
         if (!_.isEmpty(json_source.asset.tracks)) {
           json_source.asset.tracks.map(function(track) {
             var query_obj = queryString.parse(track.src);
@@ -380,7 +387,7 @@ function _readyDownloadQueue(item, callback, store) {
           if (e) {
             new Error("Error occured during getting lecture");
           }
-          console.log(b);
+          //console.log(b);
           let json_source = JSON.parse(b) || JSON.parse(JSON.stringify(b));
 
           // console.log(json_source);
@@ -390,7 +397,7 @@ function _readyDownloadQueue(item, callback, store) {
           };
           let file, ext;
           let query_obj = queryString.parse(url_link.file);
-          console.log(url_link);
+          //console.log(url_link);
           if (!query_obj.filename) {
             query_obj.filename = json_source.title;
             element.title = json_source.title.split(".").shift();

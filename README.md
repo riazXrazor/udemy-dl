@@ -26,7 +26,7 @@ $ npm install -g udemy-dl
 $ udl COMMAND
 running command...
 $ udl (-v|--version|version)
-udemy-dl/2.0.5 win32-x64 node-v12.11.0
+udemy-dl/2.0.7 win32-x64 node-v10.16.3
 $ udl --help [COMMAND]
 USAGE
   $ udl COMMAND
@@ -89,7 +89,7 @@ DESCRIPTION
   >Login to udemy.com and displays a list of courses to download.
 ```
 
-_See code: [src\commands\login.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.5/src\commands\login.js)_
+_See code: [src\commands\login.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.7/src\commands\login.js)_
 
 ## `udl reset`
 
@@ -107,7 +107,7 @@ DESCRIPTION
   >Erase all login credentials stored and download progress.
 ```
 
-_See code: [src\commands\reset.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.5/src\commands\reset.js)_
+_See code: [src\commands\reset.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.7/src\commands\reset.js)_
 
 ## `udl update`
 
@@ -121,7 +121,7 @@ DESCRIPTION
   >Update udemy-dl to latest version
 ```
 
-_See code: [src\commands\update.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.5/src\commands\update.js)_
+_See code: [src\commands\update.js](https://github.com/riazXrazor/udemy-dl/blob/v2.0.7/src\commands\update.js)_
 <!-- commandsstop -->
 * [`udl help [COMMAND]`](#udl-help-command)
 * [`udl login`](#udl-login)
