@@ -1,0 +1,44 @@
+{
+  "name": "udemy-dl",
+  "version": "0.0.31",
+  "description": "Nodejs script to download a udemy.com course, for personal offline use",
+  "main": "index.js",
+  "bin": {
+    "udl": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riazXrazor/udemy-dl.git"
+  },
+  "author": "Riaz Ali Laskar",
+  "url": "https://github.com/riazXrazor/udemy-dl/issues",
+  "email": "riazcool77@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.1.4",
+    "chalk": "^1.1.3",
+    "cheerio": "^0.22.0",
+    "clear": "0.0.1",
+    "clui": "^0.3.1",
+    "cookie": "^0.3.1",
+    "figlet": "^1.2.0",
+    "inquirer": "^2.0.0",
+    "jsonfile": "^4.0.0",
+    "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.17.1",
+    "node-vtt-to-srt": "^1.0.0",
+    "preferences": "^0.2.1",
+    "progress": "^1.1.8",
+    "query-string": "^6.1.0",
+    "request": "^2.86.0",
+    "request-progress": "^3.0.0",
+    "sanitize-filename": "^1.6.1",
+    "slugify": "^1.3.0",
+    "superagent": "^3.8.3",
+    "yargs": "^6.6.0"
+  }
+}
